@@ -1,15 +1,16 @@
 angular.module('myApp', [])
     .controller('formController', function($scope) {
-        $scope.title = "Submitting Forms with Angular";
+        $scope.title = "Validate Forms with Angular";
         $scope.usrnull = "用户名不为空";
         $scope.usrlengtherror = "用户名长度应在6-12位之间";
         $scope.passnull = "密码不为空";
         $scope.passlengtherror = "密码长度应在6-12位之间";
         $scope.pass2error = "两次密码输入不一致";
+        $scope.success = "Success!";
         $scope.userdata = {};
-        $scope.submitForm = function() {
+        $scope.submitForm = function(event) {
             console.log($scope.userdata)
-            if (!$scope.subform.$invalid) {
+            if ($scope.subform.$valid) {
                 document.getElementsByTagName('form')[0]
                     .onsubmit = function() {
                         return true }

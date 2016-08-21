@@ -15,19 +15,24 @@
         <a href="https://github.com/TransformGit"><span class="fa fa-github fa-3x"></span></a>
         <hr>
         <form action="https://github.com/TransformGit/Angular-TodoList" class="form-horizontal" name="subform" ng-submit="submitForm()" onsubmit="return false">
+            <div class="form-group result" ng-if="subform.$valid" 
+            ng-bind="success"></div>
             <div class="form-group" ng-class="{success: subform.username.$valid}">
+                <label>Username</label>
                 <input type="text" name="username" class="form-control" placeholder="enter username" ng-model="userdata.username" ng-minlength="6" ng-maxlength="12" required>
                 <p class="error" ng-if="subform.username.$error.required && subform.username.$touched" ng-bind="usrnull"></p>
                 <p class="error" ng-if="(subform.username.$error.minlength || subform.username.$error.maxlength) && subform.username.$touched" ng-bind="usrlengtherror"></p>
                 <span class="fa fa-check right" ng-if="subform.username.$valid"></span>
             </div>
             <div class="form-group" ng-class="{success: subform.password.$valid}">
+                <label>Password</label>
                 <input type="password" name="password" class="form-control" placeholder="enter password" ng-model="userdata.password" ng-minlength="6" ng-maxlength="12" required>
                 <p class="error" ng-if="subform.password.$error.required && subform.password.$touched" ng-bind="passnull"></p>
                 <p class="error" ng-if="(subform.password.$error.minlength || subform.password.$error.maxlength) && subform.password.$touched" ng-bind="passlengtherror"></p>
                 <span class="fa fa-check right" ng-if="subform.password.$valid"></span>
             </div>
             <div class="form-group" ng-class="{success: subform.password2.$valid}">
+                <label>Confirm password</label>
                 <input type="password" name="password2" class="form-control" placeholder="enter password again" ng-model="userdata.password2" compare="userdata.password" required>
                 <p class="error" ng-if="subform.password2.$error.compare && subform.password2.$touched" ng-bind="pass2error"></p>
                 <span class="fa fa-check right" ng-if="subform.password2.$valid"></span>
