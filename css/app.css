@@ -1,0 +1,27 @@
+    .form-wrap {
+        width: 650px
+    }   
+    h1 {
+        text-align: center
+    } 
+    a{
+        color: inherit
+    }
+    .fa-github{
+        position: absolute;
+        margin: -95px -10px
+    }   
+    .form-group {
+        margin-top: 2rem
+    }
+    .form-group .right {
+        position: absolute;
+        margin: -25px 590px;
+        color: #3c763d
+    }
+    .success .form-control {
+        border: 1px solid #3c763d
+    }
+    .error {
+        color: #f20
+    }
