@@ -42,6 +42,7 @@
                 ng-class="{error: subform.password2.$invalid &&
                 subform.password2.$touched, success: subform.password2.$valid &&
                 subform.password2.$touched}"
+                ng-disabled="subform.password.$invalid"
                 ng-model="userdata.password2" compare="userdata.password" required>
                 <p class="text-danger" ng-if="subform.password2.$error.compare && subform.password2.$touched" ng-bind="pass2error"></p>
                 <span class="fa fa-check right" ng-if="subform.password2.$valid"></span>
