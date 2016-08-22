@@ -10,11 +10,6 @@ angular.module('myApp', [])
         $scope.userdata = {};
         $scope.submitForm = function(event) {
             console.log($scope.userdata)
-            if ($scope.subform.$valid) {
-                document.getElementsByTagName('form')[0]
-                    .onsubmit = function() {
-                        return true }
-            }
         }
     })
     .directive('compare', function() {
