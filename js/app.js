@@ -3,6 +3,7 @@ angular.module('myApp', [])
         $scope.title = "Validate Forms with Angular";
         $scope.usrnull = "用户名不为空";
         $scope.usrlengtherror = "用户名长度应在6-12位之间";
+        $scope.usrpattern = "用户名必须以字母开头，且只能包含数字、字母或下划线";
         $scope.passnull = "密码不为空";
         $scope.passlengtherror = "密码长度应在6-12位之间";
         $scope.pass2error = "两次密码输入不一致";

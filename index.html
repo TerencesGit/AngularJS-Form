@@ -20,9 +20,10 @@
                 <label>Username</label>
                 <input type="text" name="username" class="form-control" placeholder="enter username" ng-class="{error: subform.username.$invalid &&
                 subform.username.$touched, success: subform.username.$valid &&
-                subform.username.$touched}" ng-model="userdata.username" ng-minlength="6" ng-maxlength="12" required>
+                subform.username.$touched}" ng-model="userdata.username" ng-minlength="6" ng-maxlength="12" ng-pattern="/^[A-Za-z][A-Za-z0-9_]{0,12}$/" required>
                 <p class="text-danger" ng-if="subform.username.$error.required && subform.username.$touched" ng-bind="usrnull"></p>
                 <p class="text-danger" ng-if="(subform.username.$error.minlength || subform.username.$error.maxlength) && subform.username.$touched" ng-bind="usrlengtherror"></p>
+                <p class="text-danger" ng-if="subform.username.$error.pattern && subform.username.$touched" ng-bind="usrpattern"></p>
                 <span class="fa fa-check right" ng-if="subform.username.$valid"></span>
             </div>
             <div class="form-group" ng-class="{success: subform.password.$valid}">
