@@ -1,0 +1,49 @@
+   .form-wrap {
+       width: 550px;
+       margin-top: 50px
+   }
+   
+   h1 {
+       text-align: center
+   }
+   
+   a {
+       color: inherit
+   }
+   
+   .fa-github,
+   .fa-flag {
+       position: absolute
+   }
+   
+   .fa-github {
+       margin: -72px 480px
+   }
+   
+   .fa-flag {
+       margin: -72px -5px
+   }
+   
+   .input-group,
+   .form-group {
+       margin-top: 30px
+   }
+   
+   .alert {
+       padding: 8px
+   }
+   
+   .right {
+       position: absolute;
+       z-index: 2;
+       margin: 10px -30px;
+       color: #5cb85c
+   }
+   
+   .success {
+       border-color: #5cb85c
+   }
+   
+   .error {
+       border-color: #d9534f
+   }
