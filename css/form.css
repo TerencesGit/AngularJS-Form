@@ -1,6 +1,5 @@
    .form-wrap {
-       width: 550px;
-       margin-top: 50px
+       width: 550px
    }
    
    h1 {
@@ -24,6 +23,7 @@
        margin: -72px -5px
    }
    
+   .form-wrap,
    .input-group,
    .form-group {
        margin-top: 30px
