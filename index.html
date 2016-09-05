@@ -4,59 +4,86 @@
 <head>
     <meta charset="UTF-8">
     <title>AngularJS - Form</title>
-    <link rel="stylesheet" href="lib/css/bootstrap.css">
+    <link rel="stylesheet" href="lib/css/bootstrap.min.css">
     <link rel="stylesheet" href="lib/css/font-awesome.css">
-    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/form.css">
+    <script src="lib/angular.js"></script>
+    <script src="js/form.js"></script>
 </head>
 
 <body ng-app="myApp">
     <div class="form-wrap container" ng-controller="formController">
-        <h1 class="m-y-3" ng-bind="title"></h1>
-        <a href="https://github.com/TransformGit"><span class="fa fa-github fa-3x"></span></a>
-        <hr>
-        <form action="https://github.com/TransformGit/Angular-TodoList" class="form-horizontal" name="subform" ng-submit="submitForm()">
-            <div class="form-group result" ng-if="subform.$valid" ng-bind="success"></div>
-            <div class="form-group" ng-class="{success: subform.username.$valid}">
-                <label>Username</label>
-                <input type="text" name="username" class="form-control" placeholder="enter username" ng-class="{error: subform.username.$invalid &&
-                subform.username.$touched, success: subform.username.$valid &&
-                subform.username.$touched}" ng-model="userdata.username" ng-minlength="6" ng-maxlength="12" ng-pattern="/^[A-Za-z]\w{0,12}$/" required>
-                <p class="text-danger" ng-if="subform.username.$error.required && subform.username.$touched" ng-bind="usrnull"></p>
-                <p class="text-danger" ng-if="(subform.username.$error.minlength || subform.username.$error.maxlength) && subform.username.$touched" ng-bind="usrlengtherror"></p>
-                <p class="text-danger" ng-if="subform.username.$error.pattern && subform.username.$touched" ng-bind="usrpattern"></p>
-                <span class="fa fa-check right" ng-if="subform.username.$valid"></span>
+        <h1 class="page-header">Validate Form with Angular</h1>
+         <a href="https://github.com/TransformGit"><span class="fa fa-github fa-3x"></span></a>
+         <span class="fa fa-flag fa-3x"></span>
+        <form action="https://github.com/TransformGit/Angular-TodoList" name="regForm" ng-submit="submitForm()">
+            <p class="alert alert-success" 
+            ng-show="regForm.$valid">
+                <i class="fa fa-check-square"></i>&nbsp; &nbsp;{{success}}
+            </p>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-envelope fa-fw"></i>
+                </span>
+                <input type="email" name="email" class="form-control" placeholder="E-mail Address" ng-class="{error: regForm.email.$invalid && regForm.email.$touched, 
+                success: regForm.email.$valid &&regForm.email.$touched}" ng-model="userdata.email" required>
+                <span class="fa fa-check right" ng-show="regForm.email.$valid"></span>
             </div>
-            <div class="form-group" ng-class="{success: subform.password.$valid}">
-                <label>Password</label>
-                <input type="password" name="password" class="form-control" placeholder="enter password" 
-                ng-class="{error: subform.password.$invalid &&
-                subform.password.$touched, success: subform.password.$valid &&
-                subform.password.$touched}"
-                ng-model="userdata.password" ng-minlength="6" ng-maxlength="12" required autocomplete="off">
-                <p class="text-danger" ng-if="subform.password.$error.required && subform.password.$touched" ng-bind="passnull"></p>
-                <p class="text-danger" ng-if="(subform.password.$error.minlength || subform.password.$error.maxlength) && subform.password.$touched" ng-bind="passlengtherror"></p>
-                <span class="fa fa-check right" ng-if="subform.password.$valid"></span>
+            <p class="alert alert-danger" ng-show="regForm.email.$error.required && regForm.email.$touched">
+                <i class="fa fa-warning"></i>&nbsp; &nbsp;{{emailnull}}
+            </p>
+            <p class="alert alert-danger" ng-show="regForm.email.$error.email && regForm.email.$touched">
+                <i class="fa fa-warning"></i>&nbsp; &nbsp;{{emailerror}}
+            </p>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-user fa-fw"></i>
+                </span>
+                <input type="text" name="username" class="form-control" placeholder="Username" ng-class="{error: regForm.username.$invalid &&
+                    regForm.username.$touched, success: regForm.username.$valid &&
+                    regForm.username.$touched}" ng-model="userdata.username" ng-pattern="/^[A-Za-z]\w{5,11}$/" required>
+                <span class="fa fa-check right" ng-if="regForm.username.$valid"></span>
             </div>
-            <div class="form-group" ng-class="{success: subform.password2.$valid}">
-                <label>Confirm password</label>
-                <input type="password" name="password2" class="form-control" placeholder="enter password again" 
-                ng-class="{error: subform.password2.$invalid &&
-                subform.password2.$touched, success: subform.password2.$valid &&
-                subform.password2.$touched}"
-                ng-disabled="subform.password.$invalid"
-                ng-model="userdata.password2" compare="userdata.password" required>
-                <!-- <p class="text-danger" ng-if="subform.password2.$error.compare && subform.password2.$touched" ng-bind="pass2error"></p> -->
-                <span class="text-danger" ng-show="userdata.password2 != userdata.password && subform.password2.$touched" ng-bind="pass2error"></span>
-                <span class="fa fa-check right" ng-if="subform.password2.$valid"></span>
+            <p class="alert alert-danger" ng-show="regForm.username.$error.required && regForm.username.$touched">
+                <i class="fa fa-warning"></i>&nbsp; &nbsp;{{usrnull}}
+            </p>
+            <p class="alert alert-danger" ng-show="regForm.username.$error.pattern && regForm.username.$touched">
+                <i class="fa fa-warning"></i>&nbsp; &nbsp;{{usrerror}}
+            </p>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-key fa-fw"></i>
+                </span>
+                <input type="password" name="password" class="form-control" placeholder="Password" ng-class="{error: regForm.password.$invalid &&
+                regForm.password.$touched, success: regForm.password.$valid &&
+                regForm.password.$touched}" ng-model="userdata.password" ng-minlength="6" ng-maxlength="12" required>
+                <span class="fa fa-check right" ng-show="regForm.password.$valid"></span>
             </div>
+            <p class="alert alert-danger" ng-show="regForm.password.$error.required && regForm.password.$touched">
+                <i class="fa fa-warning"></i>&nbsp;&nbsp;{{passnull}}
+            </p>
+            <p class="alert alert-danger" ng-if="(regForm.password.$error.minlength || regForm.password.$error.maxlength) && regForm.password.$touched">
+                <i class="fa fa-warning"></i>&nbsp;&nbsp;{{passerror}}
+            </p>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-keyboard-o fa-fw"></i>
+                </span>
+                <input type="password" name="password2" class="form-control" placeholder="Confirm Password" ng-class="{error: regForm.password2.$invalid &&
+                regForm.password2.$touched, success: regForm.password2.$valid &&
+                regForm.password2.$touched}" ng-disabled="regForm.password.$invalid" ng-model="userdata.password2" compare="userdata.password" required>
+                <span class="fa fa-check right" ng-show="regForm.password2.$valid"></span>
+            </div>
+            <p class="alert alert-danger" ng-show="regForm.password2.$error.compare && regForm.password2.$touched">
+                <i class="fa fa-warning"></i>&nbsp;&nbsp;{{pass2error}}
+            </p>
             <div class="form-group">
-                <button type="submit" class="btn btn-success col-sm-12" ng-disabled="subform.$invalid">
-                <span class="fa fa-bolt"></span> Submit</button>
+                <button class="btn btn-success col-sm-12" ng-disabled="regForm.$invalid">
+                    <span class="fa fa-bolt"></span> Submit
+                </button>
             </div>
         </form>
     </div>
-    <script src="lib/angular.js"></script>
-    <script src="js/app.js"></script>
 </body>
 
 </html>
