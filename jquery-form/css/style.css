@@ -1,0 +1,153 @@
+body {
+    padding: 50px 0;
+    /*background: #e1e1e1*/
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a:active,
+a:link {
+    outline: 0;
+}
+
+.navbar-brand {
+    padding: 10px 20px;
+}
+
+.navbar-brand img {
+    width: 120px;
+}
+
+a.interactive-item:hover {
+    color: #fff;
+    background-color: #43853d
+}
+
+a.interactive-item:hover code {
+    background-color: transparent;
+    color: #fff
+}
+
+a.imagelink:hover {
+    background-color: transparent
+}
+
+#interactive-wrapper {
+    flex: none
+}
+
+#interactive {
+    background-image: url("/images/background.jpg");
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.interactive-item {
+    border: 20px solid transparent;
+    min-width: 1px;
+}
+
+@media (max-width: 480px) {
+    #logo-center {
+        display: none;
+    }
+    #interactive {
+        flex-wrap: wrap;
+    }
+}
+
+@media (min-width: 481px) {
+    #logo-first {
+        display: none;
+    }
+}
+
+.container-wrapper .container {
+    margin: 10px auto;
+    background: #fff
+}
+
+.container-wrapper .title {
+    font-size: 20;
+}
+
+.cell {
+    margin: 5px 0;
+    border-bottom: 1px solid #ccc
+}
+
+.user-avatar {
+    width: 40px;
+}
+
+.topic-title-wrap,
+.cell span {
+    line-height: 48px
+}
+
+a.topic-title {
+    max-width: 80%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.center-text {
+    text-align: center
+}
+
+.panel-body {
+    min-height: 300px;
+    font-size: 16px
+}
+.panel{
+    width: 800px;
+    margin-top: 50px;
+}
+.panel-title{
+    color: #f60;
+    font-size: 30px;
+}
+.submitted{
+    margin: 10px 0 0 0;
+}
+/*signin signup css*/
+.form-wrap {
+    width: 550px;
+    margin-top: 50px
+}
+
+.input-group,
+.form-group {
+    margin-top: 30px
+}
+
+.alert {
+    padding: 8px;
+    margin-top: 10px;
+    display: none
+}
+
+.right {
+    display: none;
+    position: absolute;
+    z-index: 2;
+    margin: 10px -30px;
+    color: #5cb85c
+}
+
+.success {
+    border-color: #5cb85c
+}
+
+.error {
+    border-color: #d9534f
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="form-wrap container">
+        <h1 class="page-header">表单验证</h1>
+        <form action="/user/signup" name="regForm">
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-user fa-fw"></i>
+                </span>
+                <input type="text" id="name" name="user[username]" class="form-control" placeholder="Username" required>
+                <span class="fa fa-check right"></span>
+            </div>
+            <p class="alert alert-warning">
+                <i class="fa fa-warning"></i>&nbsp; &nbsp;以字母开头，且只能包含字母、数字、下划线，5-12位之间
+            </p>
+            <p class="alert alert-warning alert-exist">
+                <i class="fa fa-warning"></i>&nbsp; &nbsp;用户名已被占用！
+            </p>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-key fa-fw"></i>
+                </span>
+                <input type="password" id="passwd" name="user[password]" class="form-control" placeholder="Password" required>
+                <span class="fa fa-check right"></span>
+            </div>
+            <p class="alert alert-warning">
+                <i class="fa fa-warning"></i>&nbsp;&nbsp;密码长度应在6-12位之间
+            </p>
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <i class="fa fa-keyboard-o fa-fw"></i>
+                </span>
+                <input type="password" id="passwd2" name="password2" class="form-control passwd2" placeholder="Confirm Password" required disabled="true">
+                <span class="fa fa-check right"></span>
+            </div>
+            <p class="alert alert-warning">
+                <i class="fa fa-warning"></i>&nbsp;&nbsp;两次密码输入不一致
+            </p>
+            <div class="form-group">
+                <button type="submit" id="submit" class="btn btn-success col-sm-12" disabled="true">
+                    <span class="fa fa-bolt"></span> Submit
+                </button>
+            </div>
+        </form>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/form.js"></script>
+</body>
+
+</html>
